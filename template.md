@@ -17,6 +17,7 @@ framework for writing distributed quantum computing applications.
 
 # Motivation
 > Next you should talk about why, citing sources for your beliefs.
+
 Recently there has been a lot of excitement around quantum computing, and in the
 last three years [Google](https://www.nature.com/articles/s41586-019-1666-5),
 [Microsoft](https://azure.microsoft.com/en-us/solutions/quantum-computing/) and
@@ -33,6 +34,7 @@ quantum computers, but this problem has not been considered thus far.
 > This should include information about what infrastructure (e.g., CloudLab
 > resources) you plan to use, how you plan to make progress, and how you plan to
 > evaluate your view.
+
 Since quantum computers are not easily accessible at the moment, we plan to
 rely on the [Qx](http://qutech.nl/qx-quantum-computer-simulator/) simulator, and
 build on the work done in [ScaffCC](https://github.com/epiqc/ScaffCC). Currently
@@ -56,6 +58,7 @@ executes one instance of QX.
 
 > You should also talk about how you will evaluate your progress, and what you
 > think the ideal end goal would look like.
+
 We will evaluate our project by running a variety of circuits both large and
 small. We will use large circuits to demonstrate that our approach makes some
 computations feasible, while we will use small circuits (which can be run on
