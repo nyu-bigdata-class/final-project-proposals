@@ -1,8 +1,9 @@
 ---
-title: "Project Title"
+title: "Static Code Analysis for Hetrogeneous Cloud Applications"
 author:
-  - Paddington Bear <bear@paddington.com>
-  - John Appleseed <ja@example.com>
+  - Sriram Ramesh <sriram.ramesh@nyu.edu>
+  - Metarya Ruparel <msr9732@nyu.edu>
+  - Safwan Mahmood <sm9453@nyu.edu>
 ---
 
 > In what follows instructions (including this one) are in blockquotes, while
@@ -13,12 +14,12 @@ author:
 > goal  as below.
 
 For our Big Data and Machine Learning final project we plan to develop a
-framework for writing distributed quantum computing applications.
+static code analyser for applications targeting hetrogeneous cloud environment.
 
 # Motivation
 > Next you should talk about why, citing sources for your beliefs.
 
-Recently there has been a lot of excitement around quantum computing, and in the
+Recently, there has been a lot of excitement around quantum computing, and in the
 last three years [Google](https://www.nature.com/articles/s41586-019-1666-5),
 [Microsoft](https://azure.microsoft.com/en-us/solutions/quantum-computing/) and
 others have begun to demonstrate that we are getting close to the point where we
