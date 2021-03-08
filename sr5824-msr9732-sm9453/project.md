@@ -13,22 +13,37 @@ author:
 > You should start your proposal by stating a problem statement or an overall
 > goal  as below.
 
-For our Big Data and Machine Learning final project we plan to develop a
-static code analyser for applications targeting hetrogeneous cloud environment.
+For our Big Data & Machine Learning final project we plan to hypothesize a solution
+for Interoperability in the Heterogeneous Cloud Environment, a blatant issue 
+industry wide.
 
 # Motivation
-> Next you should talk about why, citing sources for your beliefs.
 
-Recently, there has been a lot of excitement around quantum computing, and in the
-last three years [Google](https://www.nature.com/articles/s41586-019-1666-5),
-[Microsoft](https://azure.microsoft.com/en-us/solutions/quantum-computing/) and
-others have begun to demonstrate that we are getting close to the point where we
-can feasibly build and run programs on quantum computers. A lot of the
-excitement around quantum computing stems from its ability to solve some
-problems exponentially faster than classical computers. However, all current
-quantum computers have limited memory resources, mostly only a few qubits.
-Therefore, actual applications are likely to require resources across multiple
-quantum computers, but this problem has not been considered thus far.
+After the burst of cloud platforms in 2006 with the introduction of Amazon
+Web Services, a lot of companies started migrating their services to the 
+cloud platform from a bare metal lying in one of their own datacenters.
+Big hulking datacenters are a necessary evil, a barely concealed secret. 
+No one wants to build one. They’re certainly impressive – they resemble the 
+set of a science fiction movie, row upon row of silent machines. But they’re 
+wildly expensive, and their maintenance challenges are never ending. 
+
+Cloud Platforms provided these companies the ability to access shared, online computing 
+resources, without the over head of maintaining them. However, these providers often 
+offer their own proprietary applications, interfaces, APIs and infrastructures, which
+somewhat makes these providers unique. Due to the uniqueness (be it performance or costing)
+companies would want to onboard different set of services onto various providers.
+For example, Salesforce.com, which  started the wave of SaaS back in the late 1900's 
+, has only recently started it's migration from 1st party datacenters to these 3rd party
+providers. Some of their micro-services are being on-boarded to GCP, while a couple of
+others to AWS, resulting in a heterogeneous cloud environment. This heterogeneous 
+environment makes it difficult for companies to change cloud service providers; in 
+any case. Exploring capabilities to support the automated migration from one provider 
+to another is an active, open research area. A lot of people have been pursuing approaches 
+to reduce the impact of vendor lock-in by investigating the cloud migration problem 
+at the level of the VM. However, the migration downtime, decoupling VM from
+underlying systems and security of live channels remain open issues and as a part of
+this project we aim to hypothesize a solution to at least one blatant issue in the
+process of migration.
 
 # Proposed Solution
 > Next you should talk about how you plan to address the problem. 
