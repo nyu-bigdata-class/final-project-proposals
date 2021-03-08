@@ -1,5 +1,5 @@
 ---
-title: "Project Title"
+title: "Build A Job Scheduler for Clusters based on Reinforcement Learning"
 author:
   - Yafu Ruan <yr942@nyu.edu>
   - Xuan Li <xl3725@nyu.edu>
