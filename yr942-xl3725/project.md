@@ -12,7 +12,9 @@ author:
 > You should start your proposal by stating a problem statement or an overall
 > goal  as below.
 
-For our Big Data and Machine Learning final project we plan to develop a customized scheduler policy using Reinforcement Learning based on an existing paper, “RLSK: A Job Scheduler for Federated Kubernetes Clusters based on Reinforcement Learning”.
+For our Big Data and Machine Learning final project we plan to develop a customized scheduler policy using Reinforcement Learning based on an existing paper, <cite>[RLSK: A Job Scheduler for Federated Kubernetes Clusters based on Reinforcement Learning][1]</cite>.
+
+[1]: https://conferences.computer.org/cpsiot/pdfs/IC2E2020-6j9eixwcPIo0tUoMnoCahH/109900a116/109900a116.pdf
 
 # Motivation
 > Next you should talk about why, citing sources for your beliefs.
