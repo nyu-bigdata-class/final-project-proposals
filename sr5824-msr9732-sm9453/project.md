@@ -1,5 +1,5 @@
 ---
-title: "Static Code Analysis for Hetrogeneous Cloud Applications"
+title: "Interoperability in the Heterogeneous Cloud Environment"
 author:
   - Sriram Ramesh <sriram.ramesh@nyu.edu>
   - Metarya Ruparel <msr9732@nyu.edu>
@@ -7,7 +7,7 @@ author:
 ---
 
 For our Big Data & Machine Learning final project we plan to hypothesize a solution
-for Interoperability in the Heterogeneous Cloud Environment, a blatant issue 
+for **Interoperability in the Heterogeneous Cloud Environment**, a blatant issue 
 industry wide.
 
 # Motivation
