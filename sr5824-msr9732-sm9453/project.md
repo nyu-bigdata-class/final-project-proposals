@@ -49,27 +49,27 @@ we also provide a correction required to move to a another Cloud provider.
 For example, let us assume that our code analyser checks AWS-specific 
 code snippet to move to Azure Cloud. Then, we provide the changes required to move to Azure.
 
-We will evaluate our project by measuring the accuracy of our corrected snippet using 
-confusion matrix on a cloud specific functions.
+The only way to evaluate our service is to check the accuracy of our recommendations.
+We would check the similarity and correctness of our recommended code snippet with the
+actual code snippet provided via the cloud service provider (it's no rocket science, to
+google a certain part of code).
+Example: If we have 4 recommendations, out of which 3 are correct, we can calculate our
+accuracy and generate a confusion matrix based on these statistics.
 
-Examples:
+To better explain our hypothesis, let us consider these examples:
 
-Big data, large-scale parallel and high-performance computing applications are been deployed
-at higher rates than ever. With burst of such use cases, heterogenous cloud deployment should not
-be a bottleneck affecting fast deployments in various public clouds.
-
-We narrow down to a use case of **batch jobs**, a capability provided by all public clouds, or atleast the ones in 
-the scope of our discussion.
+As in the case of **batch jobs**, a capability provided by all public clouds, or at least the ones that are
+pertinent to the scope of this project.
 
 Usually, batch jobs require spinning up of cluster of workers, followed by jobs submitted to
 these workers. When we look at the implementations of this API across all the cloud platforms,
-the underlying principle remains constant. 
+the underlying principle is the same. 
 
 Let's consider a particular case, integration of batch job APIs with Java. Each cloud provider has it's
-own library which implements the required functionalities along with dependencies required (For example: Maven).
-When the library is used, same flow is being executed across all clouds.
+own library which implements the required functionalities along with required dependencies, such as Maven.
+When the library is used, flow across all platforms is the same.
 
-**Azure**
+**1. Azure**
 
 The code snipped looks like.
 
@@ -83,7 +83,7 @@ configuration.withNodeAgentSKUId("batch.node.ubuntu 16.04");
 client.poolOperations().createPool(poolId, poolVMSize, configuration, poolVMCount);
 ```
 
-While a dependicy is being added to pom.xml file.
+While a dependency is being added to pom.xml file.
 
 ```
 <dependency>
@@ -93,7 +93,7 @@ While a dependicy is being added to pom.xml file.
 </dependency>
 ```
 
-Similarly, when we look at **AWS**.
+**2. AWS**.
 
 ```
 public class BatchClient {
@@ -106,7 +106,7 @@ System.out.println(response);
 }
 ```
 
-While a dependicy is being added to pom.xml file.
+While a dependency is being added to pom.xml file.
 
 ```
  <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-batch -->
@@ -118,14 +118,6 @@ While a dependicy is being added to pom.xml file.
 </dependency>
     </dependencies>
 ```
-
-When we look closely, if such regions are indentified in the code which execute the same common end goal
-across the cloud platforms, we could come up with ways to suggest snippets for the targeted cloud. Thus providing the 
-same functionality with minimal development overhead.
-
-There are many features across the cloud providers which at core deliver the same functionalities. For the sake of discussion, 
-we explore limited examples using clouds like AWS, Azure with Java as targeted language. The use cases can extended across features and languages used.
-
 
 # Timeline
 
