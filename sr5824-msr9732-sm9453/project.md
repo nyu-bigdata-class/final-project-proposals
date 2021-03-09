@@ -40,7 +40,7 @@ process of migration.
 
 # Proposed Solution
 
-As we are moving towards hetrogeneous cloud, we want to write Cloud-Agnostic
+As we are moving towards heterogeneous cloud, we want to write Cloud-Agnostic
 applications. To make the transition easier, we propose a static code analyser
 to find code snippets specific to a cloud provider using SonarQube Quality
 checks. We chose SonarQube as it is widely being used to check for bugs and
@@ -48,11 +48,6 @@ code issues in large enterprises. Apart from pointing to the position of the cha
 we also provide a correction required to move to a another Cloud provider. 
 For example, let us assume that our code analyser checks AWS-specific 
 code snippet to move to Azure Cloud. Then, we provide the changes required to move to Azure.
-
-
-
-> You should also talk about how you will evaluate your progress, and what you
-> think the ideal end goal would look like.
 
 We will evaluate our project by running a variety of code checks on cloud specific
 functions, for instance, like below.
@@ -63,7 +58,7 @@ Big data, large-scale parallel and high-performance computing applications are b
 at higher rates than ever. With burst of such use cases, heterogenous cloud deployment should not
 be a bottleneck affecting fast deployments in various public clouds.
 
-We narrow down to a use case of batch jobs, a capability provided by all public clouds, or atleast the ones in 
+We narrow down to a use case of **batch jobs**, a capability provided by all public clouds, or atleast the ones in 
 the scope of our discussion.
 
 Usually, batch jobs require spinning up of cluster of workers, followed by jobs submitted to
