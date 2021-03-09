@@ -128,19 +128,17 @@ we explore limited examples using clouds like AWS, Azure with Java as targeted l
 
 
 # Timeline
-> You should lay out a plan for what you hope to have done by each checkin. Note
-> we understand that sometimes unexpected bugs or other problems lead to slip
-> ups, but the idea behind the timeline is to provide you with the ability to
-> determine where you are in this process. It is important you propose a
-> realistic timeline that accounts for classes, interviews and other things
-> going on in your life.
 
-* Checkin I (03/30): Have QX and ScaffCC running, have a large circuit that
-    cannot be run on one machine, and a manual partitioning where each part can
-    be run on a machine.
-* Checkin II (04/20): We plan to have an initial implementation where multiple
-    Qx instances can communicate with each other. We will have an initial
-    measure of performance overheads. We also plan to have decided whether and
-    how to optimize our implementation to reduce these overheads.
-* Final Handin (05/11): We will have the distributed implementation, and an
-    initial system that uses heuristics to partition the circuit.
+* Checkin I (03/30): We plan to have our Static Code Analyzer in place which will
+  be able to detect cloud dependent code for at least one of the platform providers.
+  Example: We will be able to detect that a particular code snippet is meant for job
+  scheduling in AWS/Azure.
+
+* Checkin II (04/20): By this time, we will be extending our Static Code Analyzer for
+  all the clouds of our interest, i.e, AWS and Azure. We will also have in-place a recommendation
+  engine, which would recommend conversions on cloud centric code snippet.
+  Example: A code snippet for job scheduling in AWS --> A code snippet for job scheduling in Azure.
+
+* Final Hand-in (05/11): We will have the entire application running end-to-end, from Static Code
+  Analyzer to Recommendation Engine which will detect and recommend changes to code snippets which
+  are platform centric.
