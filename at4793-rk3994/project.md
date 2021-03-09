@@ -34,12 +34,12 @@ https://logz.io/blog/kubernetes-monitoring/
 * Second, we plan to run varying workloads on the cluster.
 * Third, we will implement the few widely known tools individually.
 * At last, we aim to analyse and compare all the tools based on the following parameters:
-* Ease of implementation.
-* User Experience.
-* Level of monitoring available: cluster level, node level and pod level.
-* The time at which the user is notified before a potential failure.
-* Maintenance Schedules
-* Configuration ease with different setups.
+  * Ease of implementation.
+  * User Experience.
+  * Level of monitoring available: cluster level, node level and pod level.
+  * The time at which the user is notified before a potential failure.
+  * Maintenance Schedules
+  * Configuration ease with different setups.
 
 
 > You should also talk about how you will evaluate your progress, and what you
