@@ -6,13 +6,6 @@ author:
   - Safwan Mahmood <sm9453@nyu.edu>
 ---
 
-> In what follows instructions (including this one) are in blockquotes, while
-> text not in blockquotes is a sample. You should of course replace the title
-> author metadata that shows up above with appropriate values.
->
-> You should start your proposal by stating a problem statement or an overall
-> goal  as below.
-
 For our Big Data & Machine Learning final project we plan to hypothesize a solution
 for Interoperability in the Heterogeneous Cloud Environment, a blatant issue 
 industry wide.
@@ -46,29 +39,23 @@ this project we aim to hypothesize a solution to at least one blatant issue in t
 process of migration.
 
 # Proposed Solution
-> Next you should talk about how you plan to address the problem. 
-> This should include information about what infrastructure (e.g., CloudLab
-> resources) you plan to use, how you plan to make progress, and how you plan to
-> evaluate your view.
 
 As we are moving towards hetrogeneous cloud, we want to write Cloud-Agnostic
 applications. To make the transition easier, we propose a static code analyser
 to find code snippets specific to a cloud provider using SonarQube Quality
-checks. Apart from pointing to the position of the change, we also provide
-a correction required to move to a another Cloud provider. For example, let us
-assume that our code analyser checks AWS-specific code snippet to move to
-Azure Cloud. Then, we provide the changes required to move to Azure.
+checks. We chose SonarQube as it is widely being used to check for bugs and
+code issues in large enterprises. Apart from pointing to the position of the change,
+we also provide a correction required to move to a another Cloud provider. 
+For example, let us assume that our code analyser checks AWS-specific 
+code snippet to move to Azure Cloud. Then, we provide the changes required to move to Azure.
 
-We chose to implement this as an extension of existing SonarQube infrastructure
-to ease the integration of the tool.
+
 
 > You should also talk about how you will evaluate your progress, and what you
 > think the ideal end goal would look like.
 
-We will evaluate our project by running a variety of circuits both large and
-small. We will use large circuits to demonstrate that our approach makes some
-computations feasible, while we will use small circuits (which can be run on
-both a single instance and distributed) to measure the performance overhead.
+We will evaluate our project by running a variety of code checks on cloud specific
+functions like .... 
 
 # Timeline
 > You should lay out a plan for what you hope to have done by each checkin. Note
