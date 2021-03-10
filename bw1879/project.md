@@ -79,17 +79,13 @@ Each of the following queries should return the expected result as its first hit
 
 ### Research Topics
 Some of the avenues for exploration in this project include:
-* sa
-* sd
-
-
-    * Building indexes of vectors, including [ANN](https://github.com/ZJULearning/efanna) search or [KD Trees](https://graphics.stanford.edu/papers/gkdtrees/gkdtrees.pdf)
-    * Building indexes when there are multiple vectors per entry, as with 'text' and 'era' tags above 
-    * Implementing a learn to rank feature so that vector rankings change over time
-    * Experimenting how [BERT](https://github.com/nghuyong/bert-classification-tf-serving) or [USE](https://arxiv.org/abs/1803.11175) should extract data with RUST as the operating code
-    * An [attention](https://arxiv.org/pdf/1706.03762.pdf) query as a means of comparing vectors
-    * Changing of vector clusters based on the addition of new metadata or of data streaming in
-    * Sharding across hosts 
+* Building indexes of vectors, including [ANN](https://github.com/ZJULearning/efanna) search or [KD Trees](https://graphics.stanford.edu/papers/gkdtrees/gkdtrees.pdf)
+* Building indexes when there are multiple vectors per entry, as with 'text' and 'era' tags above 
+* Implementing a learn to rank feature so that vector rankings change over time
+* Experimenting how [BERT](https://github.com/nghuyong/bert-classification-tf-serving) or [USE](https://arxiv.org/abs/1803.11175) should extract data with RUST as the operating code
+* An [attention](https://arxiv.org/pdf/1706.03762.pdf) query as a means of comparing vectors
+* Changing of vector clusters based on the addition of new metadata or of data streaming in
+* Sharding across hosts 
 
 
 This aims to be a database which can support a few sample queries, and progress can be evaluated based on the ability to support greater number of queries or return better examples.
