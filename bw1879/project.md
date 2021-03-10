@@ -79,6 +79,10 @@ Each of the following queries should return the expected result as its first hit
 
 ### Research Topics
 Some of the avenues for exploration in this project include:
+* sa
+* sd
+
+
     * Building indexes of vectors, including [ANN](https://github.com/ZJULearning/efanna) search or [KD Trees](https://graphics.stanford.edu/papers/gkdtrees/gkdtrees.pdf)
     * Building indexes when there are multiple vectors per entry, as with 'text' and 'era' tags above 
     * Implementing a learn to rank feature so that vector rankings change over time
