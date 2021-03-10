@@ -16,19 +16,18 @@ Fog computing, also called Edge Computing, is intended for distributed computing
  the cloud gives rise to latency issues. This becomes a bottleneck in IoT applications
  where results to computations are necessary in real-time (like in the case of disaster management
 and content delivery applications.) Service Level Agreements (SLAs) may also impose processing at 
-locations where the cloud provider does not have data centers. Latency and several factors have 
+locations where the cloud provider does not have data centers. Latency and other limitations have 
 been discussed in this [paper](https://www.researchgate.net/profile/Rodolfo-Milito/publication/235409978_Fog_Computing_and_its_Role_in_the_Internet_of_Things/links/0deec531f19946228c000000/Fog-Computing-and-its-Role-in-the-Internet-of-Things.pdf).
 
-Resource management and task scheduling in Fog Computing that is garnering a lot
-of interest as there are new constraints and criteria that need to be considered. As with the
-cloud architecture, there cannot be a one size fits all solution.
-[Mouradian et al.](https://arxiv.org/pdf/1710.11001.pdf) provides a comprehensive survey on the 
-field of fog computing and also enumerates areas of further research.
+Resource management and task scheduling in Fog Computing have garnered interest especially since there has been a
+ rise in demand for quality of service in IoT devices. As with the cloud architecture, there cannot be a one size
+ fits all solution for scheduling in fog computing. [Matrouk et al.](https://www.atlantis-press.com/journals/ijndc/125951775/view) provide an extensive survey of existing fog schedulers. 
+ [Mouradian et al.](https://arxiv.org/pdf/1710.11001.pdf) explores fog computing and enumerates areas of
+ further research.
 
 
 
 # Proposed Solution
-
 
 [iFogSim](https://github.com/Cloudslab/iFogSim) is a Fog and IoT environments 
 simulator dedicated to manage IoT services in a Fog infrastructure. 
