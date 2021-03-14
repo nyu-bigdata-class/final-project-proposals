@@ -25,6 +25,10 @@ Resource management and task scheduling in Fog Computing have garnered interest 
  [Mouradian et al.](https://arxiv.org/pdf/1710.11001.pdf) explores fog computing and enumerates areas of
  further research.
 
+Healthcare has been revolutionised by IoT devices, from making monitoring patient vitals simpler 
+to early detection of deadly diseases. We will design a scheduler to detect emergencies in healthcare based on vitals 
+monitored by IoT devices. It is crucial that we optimise the device to provide high priority emergencies with timely 
+responses.
 
 
 # Proposed Solution
@@ -34,17 +38,19 @@ simulator dedicated to manage IoT services in a Fog infrastructure.
 We plan to use [iFogSim](https://arxiv.org/abs/1606.02007)
 to simulate an IoT setup with fog/edge architecture and come up with our own scheduler.
 
-* Initially, we will set up the simulator and create our edge architecture. The aim of this exercise is 
-to familiarise ourselves with the simulator and with edge architecture.
-
+* Initially, we will set up the simulator and create our edge architecture. This multi level hierarchy architecture will model the devices on the edge(sensors),
+ fog devices and the cloud server.Constraints such as network latency, bandwidth,  and device capacities like CPU power will be enforced by the 
+  model on the simulator. The aim of this exercise is to familiarise ourselves with the simulator and with edge architecture. 
+  
 * Next, we will then work on implementing a naive scheduler
-like FCFS, Round-Robin or SJF. This will allow us to understand custom schedulers in the 
-simulator and give use a baseline for comparison. 
+like FCFS, Round-Robin or SJF. While we understand that these algorithms are sub-optimal for our problem, this will 
+  allow us to understand custom schedulers in the simulator and give use a baseline for comparison. 
 
-* We will then implement a more intelligent scheduler using our understanding of the constraints and scenarios of edge 
+* We will then implement a more intelligent scheduler using our understanding of the constraints and scenarios of our application in edge 
 and fog computing. (Note: There cannot be a one size fits all solution and 
-we will restrict the scenario and the constraints to be optimized for accordingly.)
-
+we will restrict the scenario and the constraints to be optimized for accordingly.) The scenario we want to optimize for is response to emergencies detected by data on vitals sent by devices on the edge.
+  Priority and latency will be key parameters for our problem. Since sxcheduling is a NP Hard problem, we aim to explore heuristics based algorithms for the same.
+  
 * Finally, we will benchmark the performance of our scheduler against
 iFogSim's default scheduler, the naive scheduler we built earlier and other schedulers
 that optimize scheduling for similar use cases and constraints.
