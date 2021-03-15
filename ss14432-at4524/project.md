@@ -63,12 +63,12 @@ Each of the devices will have its own constraints like their internal processing
 constraints of the devices will be modelled in the simulator where each of the devices will be assigned specific values for 
 the relevant constraints like latency, power usage and so on. We assume that the constraints such as latency
 , network bandwidth for our devices will be modelled according to the constraints specified by  [Shukla et. al
-.](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0224934).   
+](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0224934).   
 
 ### Workplan
 
 * Initially, we will set up the simulator and create our edge architecture. This multi level architecture will model the devices on the edge(sensors),
- fog devices and the cloud server.Constraints such as network latency, bandwidth,  and device capacities like CPU power will be enforced by the 
+ fog devices and the cloud server. Constraints such as network latency, bandwidth,  and device capacities like CPU power will be enforced by the 
   model on the simulator. The aim of this exercise is to familiarise ourselves with the simulator and with edge architecture. 
   
 * Next, we will then work on implementing a naive scheduler
