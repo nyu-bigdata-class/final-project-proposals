@@ -48,10 +48,11 @@ to simulate an IoT setup with fog/edge architecture and come up with our own sch
 
 ### Architecture
 
-The edge architecture we propose is a n-level heirarchical architecture which will consist of edge devices like sensors at the 
+The edge architecture we propose is a n-level hierarchical architecture which will consist of edge devices like sensors at the 
 lowest level and fog devices which perform computation and decision-making at the subsequent higher level. The top level will
-eventually be the cluud server where data and records to be stored can be sent and maybe heavy analytics based research can be
-done. 
+eventually be the cloud server where data and records to be stored can be sent and maybe heavy analytics based research can be
+done. [HealthEdge](http://www.cs.virginia.edu/~hs6ms/publishedPaper/Conference/2017/HealthEdge-BigData2017.pdf) talks about the 
+edge architecture in healthcare systems.
 
 The individual patient level monitoring and welfare assistance will be performed by the fog devices in the intermediate 
 levels as quick response(low latency) is paramount. These fog devices will schedule tasks on a priority based approach with 
