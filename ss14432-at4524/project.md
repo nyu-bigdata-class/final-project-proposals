@@ -81,9 +81,9 @@ iFogSim's default scheduler, the naive scheduler we built earlier and other sche
 that optimize scheduling for similar use cases and constraints.
   
 
-### Evaluation metrics:
+### Evaluation metrics
 
-Our scheduler will be considered successful if it caters to the necessary latency constraints. The scheduling decisions need to 
+Our scheduler will be considered successful if it caters to the necessary latency and priority constraints. The scheduling decisions need to 
 be completed in the order of milliseconds as in the case of emergencies, response needs to be immediate. However, we will also
 compare our scheduler with the default scheduler which is built into iFogSim and the other naive scheduling algorithms.
 
