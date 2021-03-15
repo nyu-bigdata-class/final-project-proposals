@@ -60,7 +60,9 @@ higher priority for emergency scenarios.
 
 Each of the devices will have its own constraints like their internal processing latency and so on. These 
 constraints of the devices will be modelled in the simulator where each of the devices will be assigned specific values for 
-the relevant constraints like latency, power usage and so on. 
+the relevant constraints like latency, power usage and so on. We assume that the constraints such as latency
+, network bandwidth for our devices will be modelled according to the constraints specified by  [Shukla et. al
+.](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0224934).   
 
 ### Workplan
 
