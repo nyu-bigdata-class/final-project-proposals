@@ -82,12 +82,6 @@ This aims to be a database which can support a few sample queries, and progress 
 
 
 # Timeline
-> You should lay out a plan for what you hope to have done by each checkin. Note
-> we understand that sometimes unexpected bugs or other problems lead to slip
-> ups, but the idea behind the timeline is to provide you with the ability to
-> determine where you are in this process. It is important you propose a
-> realistic timeline that accounts for classes, interviews and other things
-> going on in your life.
 
 * Checkin I (03/30): Ability to run RUST, familiarity with RUST vector libraries, and ability to extract embeddings from text
 * Checkin II (04/20): Simple queries are working, an exploration of indexes is done
