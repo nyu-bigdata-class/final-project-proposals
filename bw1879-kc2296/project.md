@@ -2,6 +2,7 @@
 title: "Thistle"
 author:
   - Brad Windsor <bwindsor22@gmail.com>
+  - Kevin Choi <kc2296@nyu.edu>
 ---
 
 > In what follows instructions (including this one) are in blockquotes, while
