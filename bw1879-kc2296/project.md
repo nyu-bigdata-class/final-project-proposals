@@ -5,18 +5,10 @@ author:
   - Kevin Choi <kc2296@nyu.edu>
 ---
 
-> In what follows instructions (including this one) are in blockquotes, while
-> text not in blockquotes is a sample. You should of course replace the title
-> author metadata that shows up above with appropriate values.
->
-> You should start your proposal by stating a problem statement or an overall
-> goal  as below.
 
-For our Big Data and Machine Learning final project we plan to develop a
-framework for writing distributed quantum computing applications.
+For our Big Data and Machine Learning final project we plan to develop a vector database.
 
 # Motivation
-> Next you should talk about why, citing sources for your beliefs.
  
 Most text search works off of the BM-25 algorithm, including [Elastic Search](https://www.elastic.co/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables) and 
 [Vespa](https://docs.vespa.ai/en/reference/bm25.html). This algorithm is an old variation on TF-IDF, largely based on term counts.
@@ -29,10 +21,6 @@ Inspired by [Pinecone DB](https://www.pinecone.io/), this project aims to create
 taking advantage of vector representations.
 
 # Proposed Solution
-> Next you should talk about how you plan to address the problem. 
-> This should include information about what infrastructure (e.g., CloudLab
-> resources) you plan to use, how you plan to make progress, and how you plan to
-> evaluate your view.
 
 
 ### Basic Design
