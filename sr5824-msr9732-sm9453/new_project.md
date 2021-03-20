@@ -58,7 +58,7 @@ as follows:
 2. Triage:
     This is the most difficult part to accomplish. We do not plan to come up with a complete RCA. We are 
     going to mock this part with rules, to showcase how all the different parts are stitched together. We
-    are going to use StackStorm for this. StackStorm would have sensors, which would poll the data, call 
+    are going to use StackStorm[7] for this. StackStorm would have sensors, which would poll the data, call 
     our detection API, based on the Anomaly Scores, match a corresponding rule and take an appropriate action.
    
 3. Remediate:
