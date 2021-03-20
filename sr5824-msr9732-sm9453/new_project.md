@@ -20,8 +20,9 @@ adopted[2]. But the ever-increasing complexity and scale of cloud
 computing pose signigicant challenges for operating services with DevOps[3]
 which led to introduction of artifiical intelligence to IT operations *AI Ops*[4].
 
-AI Ops helps in improving the handling of future situtaions and prevent disasters
-instead of resolving them. Anomoly Detection techniques has been developed for 
+AI Ops tries to be proactive in preventing disasters and helps in root cause 
+identification. AIOps finds anomolies in the cluster data by using unsupervised
+learning and anomoly detection. There has been techniques has been developed for 
 streaming data and benchmarked with real time applications[5].
 
 We want to analyse and benchmark unsupervised learning on the cluster data[6] to 
