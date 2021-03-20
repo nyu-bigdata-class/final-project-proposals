@@ -1,5 +1,5 @@
 ---
-title: "Interoperability in the Heterogeneous Cloud Environment"
+title: "Unsupervised Anomaly Detection in AIOps Lifecycle: A survey of Techniques"
 author:
   - Sriram Ramesh <sriram.ramesh@nyu.edu>
   - Metarya Ruparel <msr9732@nyu.edu>
@@ -7,36 +7,25 @@ author:
 ---
 
 For our Big Data & Machine Learning final project we plan to hypothesize a solution
-for **Interoperability in the Heterogeneous Cloud Environment**, a blatant issue 
-industry wide.
+for **Unsupervised Anomaly Detection in AIOps Lifecycle: A survey of Techniques**
 
 # Motivation
 
-After the burst of cloud platforms in 2006 with the introduction of Amazon
-Web Services, a lot of companies started migrating their services to the 
-cloud platform from a bare metal lying in one of their own datacenters.
-Big hulking datacenters are a necessary evil, a barely concealed secret. 
-No one wants to build one. They’re certainly impressive – they resemble the 
-set of a science fiction movie, row upon row of silent machines. But they’re 
-wildly expensive, and their maintenance challenges are never ending. 
+DevOps is a collaborative and multidisciplinary organizational effort
+to automate continuous delivery of new software updates while guaranteeing
+their correctness and reliability[1].
 
-Cloud Platforms provided these companies the ability to access shared, online computing 
-resources, without the over head of maintaining them. However, these providers often 
-offer their own proprietary applications, interfaces, APIs and infrastructures, which
-somewhat makes these providers unique. Due to the uniqueness (be it performance or costing)
-companies would want to onboard different set of services onto various providers.
-For example, Salesforce.com, which  started the wave of SaaS back in the late 1900's 
-, has only recently started it's migration from 1st party datacenters to these 3rd party
-providers. Some of their micro-services are being on-boarded to GCP, while a couple of
-others to AWS, resulting in a heterogeneous cloud environment. This heterogeneous 
-environment makes it difficult for companies to change cloud service providers; in 
-any case. Exploring capabilities to support the automated migration from one provider 
-to another is an active, open research area. A lot of people have been pursuing approaches 
-to reduce the impact of vendor lock-in by investigating the cloud migration problem 
-at the level of the VM. However, the migration downtime, decoupling VM from
-underlying systems and security of live channels remain open issues and as a part of
-this project we aim to hypothesize a solution to at least one blatant issue in the
-process of migration.
+This methodology for facilitating continutous deployment has been widely
+adopted[2]. But the ever-increasing complexity and scale of cloud
+computing pose signigicant challenges for operating services with DevOps[3]
+which led to introduction of artifiical intelligence to IT operations *AI Ops*[4].
+
+AI Ops helps in improving the handling of future situtaions and prevent disasters
+instead of resolving them. Anomoly Detection techniques has been developed for 
+streaming data and benchmarked with real time applications[5].
+
+We want to analyse and benchmark unsupervised learning on the cluster data[6] to 
+evaluate the prospects of AIOps in real world usage.
 
 # Proposed Solution
 
@@ -106,3 +95,12 @@ F1 score is an apt metric evaluation for our use case.
 * Final Hand-in (05/11): We will have the entire application running end-to-end, from Static Code
   Analyzer to Recommendation Engine which will detect and recommend changes to code snippets which
   are platform centric.
+
+1. https://arxiv.org/pdf/1909.05409.pdf
+2. G. Kim, P. Debois, et al, “The DevOps Handbook: How to Create WorldClass Agility, Reliability, and Security in Technology Organizations”, IT
+Revolution Press, Oct. 2016
+3. https://ieeexplore-ieee-org.proxy.library.nyu.edu/stamp/stamp.jsp?tp=&arnumber=8802836
+4. https://www.moogsoft.com/resources/aiops/guide/everything-aiops/
+5. https://www.sciencedirect.com/science/article/pii/S0925231217309864
+6. https://github.com/alibaba/clusterdata
+
