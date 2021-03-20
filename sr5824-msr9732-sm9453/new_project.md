@@ -96,7 +96,8 @@ F1 score is an apt metric evaluation for our use case.
 * Final Hand-in (05/11): We will have the entire application running end-to-end, from Static Code
   Analyzer to Recommendation Engine which will detect and recommend changes to code snippets which
   are platform centric.
-
+  
+# References
 1. https://arxiv.org/pdf/1909.05409.pdf
 2. G. Kim, P. Debois, et al, “The DevOps Handbook: How to Create WorldClass Agility, Reliability, and Security in Technology Organizations”, IT
 Revolution Press, Oct. 2016
