@@ -62,7 +62,7 @@ We don’t want a scenario where there are alerts raised on false event predicti
 
 **Accuracy:**
 A common metric to evaluate performance of a model. In our case, where anomaly is an rare event compared to the rest, accuracy doesn't give a sound picture because of imbalanced classes.
-The chances of actually having anomaly are very low. Let’s say out of 100, 90 of the events don’t have anomaly and the remaining 10 actually have it. We don’t want to miss on an event which is having an anomaly but goes undetected (false negative). 
+The chances of actually having anomaly are very low. Let’s say out of 100, 90 of the events don’t have anomaly and the remaining 10 actually have it. We don’t want to miss on an event which is having an anomaly but goes undetected (false negative). Detecting every event as not having anomaly gives an accuracy of 90% straight. The model did nothing here but just gave anomaly free for all the 100 predictions.
 
 **Precision:**
 Gives percentage of positive instances out of the total predicted positive instances. Take it as to find out ‘how much the model is right when it says it is right’.
