@@ -74,19 +74,19 @@ The main part of our project is going to be evaluating different Unsupervised An
 
 We plan to serve the following models using the API:
 
-1. Statistical:
-    a. Autoregression (AR)
-    b. Moving Average (MA)
-    c. ARIMA
-    d. SARIMA
-    e. SARIMAX
+1. Statistical:\
+    a. Autoregression (AR)\
+    b. Moving Average (MA)\
+    c. ARIMA\
+    d. SARIMA\
+    e. SARIMAX\
    
-2. Machine Learning Based Models:
-    a. Isolation Forest (ISF)
+2. Machine Learning Based Models:\
+    a. Isolation Forest (ISF)\
    
-3. Neural Nets:
-    a. LSTM's
-    b. HTM
+3. Neural Nets:\
+    a. LSTM's\
+    b. HTM\
 
 We will evaluate the above algorithms and study their effects on the AIOps Lifecycle and derive which
 one works the best on our dataset.
