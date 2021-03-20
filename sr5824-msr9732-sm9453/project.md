@@ -1,5 +1,5 @@
 ---
-title: "Interoperability in the Heterogeneous Cloud Environment"
+title: "Unsupervised Anomaly Detection in AIOps Lifecycle: A survey of Techniques"
 author:
   - Sriram Ramesh <sriram.ramesh@nyu.edu>
   - Metarya Ruparel <msr9732@nyu.edu>
@@ -7,130 +7,141 @@ author:
 ---
 
 For our Big Data & Machine Learning final project we plan to hypothesize a solution
-for **Interoperability in the Heterogeneous Cloud Environment**, a blatant issue 
-industry wide.
+for **Unsupervised Anomaly Detection in AIOps Lifecycle: A survey of Techniques**
 
 # Motivation
 
-After the burst of cloud platforms in 2006 with the introduction of Amazon
-Web Services, a lot of companies started migrating their services to the 
-cloud platform from a bare metal lying in one of their own datacenters.
-Big hulking datacenters are a necessary evil, a barely concealed secret. 
-No one wants to build one. They’re certainly impressive – they resemble the 
-set of a science fiction movie, row upon row of silent machines. But they’re 
-wildly expensive, and their maintenance challenges are never ending. 
+DevOps is a collaborative and multidisciplinary organizational effort
+to automate continuous delivery of new software updates while guaranteeing
+their correctness and reliability[1].
 
-Cloud Platforms provided these companies the ability to access shared, online computing 
-resources, without the over head of maintaining them. However, these providers often 
-offer their own proprietary applications, interfaces, APIs and infrastructures, which
-somewhat makes these providers unique. Due to the uniqueness (be it performance or costing)
-companies would want to onboard different set of services onto various providers.
-For example, Salesforce.com, which  started the wave of SaaS back in the late 1900's 
-, has only recently started it's migration from 1st party datacenters to these 3rd party
-providers. Some of their micro-services are being on-boarded to GCP, while a couple of
-others to AWS, resulting in a heterogeneous cloud environment. This heterogeneous 
-environment makes it difficult for companies to change cloud service providers; in 
-any case. Exploring capabilities to support the automated migration from one provider 
-to another is an active, open research area. A lot of people have been pursuing approaches 
-to reduce the impact of vendor lock-in by investigating the cloud migration problem 
-at the level of the VM. However, the migration downtime, decoupling VM from
-underlying systems and security of live channels remain open issues and as a part of
-this project we aim to hypothesize a solution to at least one blatant issue in the
-process of migration.
+This methodology for facilitating continutous deployment has been widely
+adopted[2]. But the ever-increasing complexity and scale of cloud
+computing pose signigicant challenges for operating services with DevOps[3]
+which led to introduction of artifiical intelligence to IT operations *AI Ops*[4].
+
+AI Ops tries to be proactive in preventing disasters and helps in root cause 
+identification. AIOps finds anomolies in the cluster data by using unsupervised
+learning and anomoly detection. There has been techniques has been developed for 
+streaming data and benchmarked with real time applications[5].
+
+We want to analyse and benchmark unsupervised learning on the cluster data[6] to 
+evaluate the prospects of AIOps in real world usage.
 
 # Proposed Solution
 
-As we are moving towards heterogeneous cloud, we want to write Cloud-Agnostic
-applications. To make the transition easier, we propose a static code analyser
-to find code snippets specific to a cloud provider using SonarQube Quality
-checks. We chose SonarQube as it is widely being used to check for bugs and
-code issues in large enterprises. Apart from pointing to the position of the change,
-we also provide a correction required to move to a another Cloud provider. 
-For example, let us assume that our code analyser checks AWS-specific 
-code snippet to move to Azure Cloud. Then, we provide the changes required to move to Azure.
+To get the most value out of the AIOps system, it should be deployed as an independent platform that 
+ingests data from all IT monitoring sources, and acts as a central system of engagement.
 
-The only way to evaluate our service is to check the accuracy of our recommendations.
-We would check the similarity and correctness of our recommended code snippet with the
-actual code snippet provided via the cloud service provider (it's no rocket science, to
-google a certain part of code).
-Example: If we have 4 recommendations, out of which 3 are correct, we can calculate our
-accuracy and generate a confusion matrix based on these statistics.
+Such a platform must be powered by three major types of algorithms that fully automate and 
+streamline three key dimensions of IT operations monitoring:
 
-To better explain our hypothesis, let us consider these examples:
+1. Detection - Machine Learning models trained on past dataset, which would detect any aberration in the
+               metrics and would raise a flag. This would be the entry point of the system.
+   
+2. Triaging - Identifying root causes of problems and recurring issues, so that you can take action 
+              on what has been discovered.
+   
+3. Remediate - Take an appropriate action to avoid/tackle the problem at hand.
 
-As in the case of **batch jobs**, a capability provided by all public clouds, or at least the ones that are
-pertinent to the scope of this project.
+These steps occur in a sequential manner, i.e, Once we detect an incident, we triage it and then remediate it.
 
-Usually, batch jobs require spinning up of cluster of workers, followed by jobs submitted to
-these workers. When we look at the implementations of this API across all the cloud platforms,
-the underlying principle is the same. 
+As part of this project, we are going to deploy the AIOps lifecycle. The way we plan to do this is
+as follows:
 
-Let's consider a particular case, integration of batch job APIs with Java. Each cloud provider has it's
-own library which implements the required functionalities along with required dependencies, such as Maven.
-When the library is used, flow across all platforms is the same.
+1. Detection:
+    We will have a detection API (Flask application) being served from CloudLab. We will have pre-trained 
+    models that would sit on the local file system (we would just pickle them and store them. We are not 
+    making it more complex as our main goal is not to have the complete system. Our main goal is to evaluate
+    all the different techniques).
+   
+2. Triage:
+    This is the most difficult part to accomplish. We do not plan to come up with a complete RCA. We are 
+    going to mock this part with rules, to showcase how all the different parts are stitched together. We
+    are going to use StackStorm[7] for this. StackStorm would have sensors, which would poll the data, call 
+    our detection API, based on the Anomaly Scores, match a corresponding rule and take an appropriate action.
+   
+3. Remediate:
+    This part contains the set of actions that we would want to take. These actions can be as simple as
+    restarting a container. This would again be part of the StackStorm ecosystems. Actions are scripts
+    which would be called by StackStorm when a particular rule is matched against it.
+   
+The reason we want to come-up with the entire AIOps Cycle is to showcase how different detecting algorithms
+can have adverse effects in real world. For example: if we miss an incident, there would not be any rules
+matched and thus there would not be any action taken on it.
 
-**1. Azure**
+The main part of our project is going to be evaluating different Unsupervised Anomaly Detection Algorithms. 
 
-The code snipped looks like.
+We plan to serve the following models using the API:
 
-```
-// create the batch client for an account using its URI and keys
-BatchClient client = BatchClient.open(new BatchSharedKeyCredentials("https://API.eastus.batch.azure.com", "user", batchKey));
+1. Statistical:\
+    a. Autoregression (AR)\
+    b. Moving Average (MA)\
+    c. ARIMA\
+    d. SARIMA\
+    e. SARIMAX
+   
+2. Machine Learning Based Models:\
+    a. Isolation Forest (ISF)
+   
+3. Neural Nets:\
+    a. LSTM's\
+    b. HTM
 
-// configure a pool of VMs to use 
-VirtualMachineConfiguration configuration = new VirtualMachineConfiguration();
-configuration.withNodeAgentSKUId("batch.node.ubuntu 16.04");
-client.poolOperations().createPool(poolId, poolVMSize, configuration, poolVMCount);
-```
+We will evaluate the above algorithms and study their effects on the AIOps Lifecycle and derive which
+one works the best on our dataset.
 
-While a dependency is being added to pom.xml file.
+**Evaluation Metrics:**
 
-```
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-batch</artifactId>
-    <version>4.0.0</version>
-</dependency>
-```
+We don’t want a scenario where there are alerts raised on false event predictions but also make sure we don't miss out on alert events as False negatives. Our predictions need to have low false positives and along with low false negatives.
 
-**2. AWS**.
+**Accuracy:**
+A common metric to evaluate performance of a model. In our case, where anomaly is an rare event compared to the rest, accuracy doesn't give a sound picture because of imbalanced classes.
+The chances of actually having anomaly are very low. Let’s say out of 100, 90 of the events don’t have anomaly and the remaining 10 actually have it. We don’t want to miss on an event which is having an anomaly but goes undetected (false negative). Detecting every event as not having anomaly gives an accuracy of 90% straight. The model did nothing here but just gave anomaly free for all the 100 predictions.
 
-```
-public class BatchClient {
-public static void main(String[] args) {
-        AWSBatch client = AWSBatchClientBuilder.standard().withRegion("us-east-1").build();
-SubmitJobRequest request = new SubmitJobRequest().withJobName("example").withJobQueue("new-queue").withJobDefinition("sleep30:4");
-SubmitJobResult response = client.submitJob(request);
-System.out.println(response);    
-}
-}
-```
+**Precision:**
+Gives percentage of positive instances out of the total predicted positive instances. Take it as to find out ‘how much the model is right when it says it is right’.
 
-While a dependency is being added to pom.xml file.
+So high precision is one such desired metric.
 
-```
- <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-batch -->
-    <dependencies>
-    <dependency>
-    <groupId>com.amazonaws</groupId>
-    <artifactId>aws-java-sdk-batch</artifactId>
-    <version>1.11.470</version>
-</dependency>
-    </dependencies>
-```
+**Recall:**
+Take it as to find out ‘how much extra right ones, the model missed when it showed the right ones’.
+We aim for low recall.
+
+**F1 score:**
+Combines precision and recall. Higher the F1 score, the better.
+So a model does well in F1 score if the positive predicted are actually positives (precision) and doesn't miss out on positives and predicts them negative (recall).
+
+Like in our case, which has a high class imbalance because very few have anomalies out of all the events. We certainly don’t want to miss on an event having anomaly and going undetected (recall) and be sure the detected one is having it (precision).
+
+F1 score is an apt metric evaluation for our use case.
+
+**Others evaluation metrics:**
+* Confusion matrix
+* Logarithmic Loss
+* Area under curve (AUC) (The nonparametric use of ROC curves for computing AUC values)
+
+**Regression metrics:**
+* Root Mean Squared Error
+* Mean Absolute Error.
+
 
 # Timeline
 
-* Checkin I (03/30): We plan to have our Static Code Analyzer in place which will
-  be able to detect cloud dependent code for at least one of the platform providers.
-  Example: We will be able to detect that a particular code snippet is meant for job
-  scheduling in AWS/Azure.
+* Checkin I (03/30): We plan to complete the evaluation of Autoregression and Moving Average statistical models.
 
-* Checkin II (04/20): By this time, we will be extending our Static Code Analyzer for
-  all the clouds of our interest, i.e, AWS and Azure. We will also have in-place a recommendation
-  engine, which would recommend conversions on cloud centric code snippet.
-  Example: A code snippet for job scheduling in AWS --> A code snippet for job scheduling in Azure.
+* Checkin II (04/20): We plan to deploy all the models on CloudLab and serve them via API. 
+  We will also start with StackStorm and have the sensor ready to poll data and call the API.
 
-* Final Hand-in (05/11): We will have the entire application running end-to-end, from Static Code
-  Analyzer to Recommendation Engine which will detect and recommend changes to code snippets which
-  are platform centric.
+* Final Hand-in (05/11): We will have the complete evaluation of all our Anomlay Detection Model and 
+  also a complete AIOps Lifecycle (using StackStorm) to study the effect of these algorithms on real world systems.
+  
+# References
+1. https://arxiv.org/pdf/1909.05409.pdf
+2. G. Kim, P. Debois, et al, “The DevOps Handbook: How to Create WorldClass Agility, Reliability, and Security in Technology Organizations”, IT
+Revolution Press, Oct. 2016
+3. https://ieeexplore-ieee-org.proxy.library.nyu.edu/stamp/stamp.jsp?tp=&arnumber=8802836
+4. https://www.moogsoft.com/resources/aiops/guide/everything-aiops/
+5. https://www.sciencedirect.com/science/article/pii/S0925231217309864
+6. https://github.com/alibaba/clusterdata
+7. https://github.com/StackStorm/st2
