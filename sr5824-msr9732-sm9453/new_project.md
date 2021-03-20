@@ -128,7 +128,7 @@ F1 score is an apt metric evaluation for our use case.
 
 # Timeline
 
-* Checkin I (03/30): We plan to complete the evaluation of all the statistical models.
+* Checkin I (03/30): We plan to complete the evaluation of Autoregression and Moving Average statistical models.
 
 * Checkin II (04/20): We plan to deploy all the models on CloudLab and serve them via API. 
   We will also start with StackStorm and have the sensor ready to poll data and call the API.
