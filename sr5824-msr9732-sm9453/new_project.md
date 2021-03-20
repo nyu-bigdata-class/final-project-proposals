@@ -56,68 +56,40 @@ google a certain part of code).
 Example: If we have 4 recommendations, out of which 3 are correct, we can calculate our
 accuracy and generate a confusion matrix based on these statistics.
 
-To better explain our hypothesis, let us consider these examples:
+**Evaluation Metrics:**
 
-As in the case of **batch jobs**, a capability provided by all public clouds, or at least the ones that are
-pertinent to the scope of this project.
+We don’t want a scenario where there are alerts raised on false event predictions but also make sure we don't miss out on alert events as False negatives. Our predictions need to have low false positives and along with low false negatives.
 
-Usually, batch jobs require spinning up of cluster of workers, followed by jobs submitted to
-these workers. When we look at the implementations of this API across all the cloud platforms,
-the underlying principle is the same. 
+**Accuracy:**
+A common metric to evaluate performance of a model. In our case, where anomaly is an rare event compared to the rest, accuracy doesn't give a sound picture because of imbalanced classes.
+The chances of actually having anomaly are very low. Let’s say out of 100, 90 of the events don’t have anomaly and the remaining 10 actually have it. We don’t want to miss on an event which is having an anomaly but goes undetected (false negative). 
 
-Let's consider a particular case, integration of batch job APIs with Java. Each cloud provider has it's
-own library which implements the required functionalities along with required dependencies, such as Maven.
-When the library is used, flow across all platforms is the same.
+**Precision:**
+Gives percentage of positive instances out of the total predicted positive instances. Take it as to find out ‘how much the model is right when it says it is right’.
 
-**1. Azure**
+So high precision is one such desired metric.
 
-The code snipped looks like.
+**Recall:**
+Take it as to find out ‘how much extra right ones, the model missed when it showed the right ones’.
+We aim for low recall.
 
-```
-// create the batch client for an account using its URI and keys
-BatchClient client = BatchClient.open(new BatchSharedKeyCredentials("https://API.eastus.batch.azure.com", "user", batchKey));
+**F1 score:**
+Combines precision and recall. Higher the F1 score, the better.
+So a model does well in F1 score if the positive predicted are actually positives (precision) and doesn't miss out on positives and predicts them negative (recall).
 
-// configure a pool of VMs to use 
-VirtualMachineConfiguration configuration = new VirtualMachineConfiguration();
-configuration.withNodeAgentSKUId("batch.node.ubuntu 16.04");
-client.poolOperations().createPool(poolId, poolVMSize, configuration, poolVMCount);
-```
+Like in our case, which has a high class imbalance because very few have anomalies out of all the events. We certainly don’t want to miss on an event having anomaly and going undetected (recall) and be sure the detected one is having it (precision).
 
-While a dependency is being added to pom.xml file.
+F1 score is an apt metric evaluation for our use case.
 
-```
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-batch</artifactId>
-    <version>4.0.0</version>
-</dependency>
-```
+**Others evaluation metrics:**
+* Confusion matrix
+* Logarithmic Loss
+* Area under curve (AUC) (The nonparametric use of ROC curves for computing AUC values)
 
-**2. AWS**.
+**Regression metrics:**
+* Root Mean Squared Error
+* Mean Absolute Error.
 
-```
-public class BatchClient {
-public static void main(String[] args) {
-        AWSBatch client = AWSBatchClientBuilder.standard().withRegion("us-east-1").build();
-SubmitJobRequest request = new SubmitJobRequest().withJobName("example").withJobQueue("new-queue").withJobDefinition("sleep30:4");
-SubmitJobResult response = client.submitJob(request);
-System.out.println(response);    
-}
-}
-```
-
-While a dependency is being added to pom.xml file.
-
-```
- <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-batch -->
-    <dependencies>
-    <dependency>
-    <groupId>com.amazonaws</groupId>
-    <artifactId>aws-java-sdk-batch</artifactId>
-    <version>1.11.470</version>
-</dependency>
-    </dependencies>
-```
 
 # Timeline
 
