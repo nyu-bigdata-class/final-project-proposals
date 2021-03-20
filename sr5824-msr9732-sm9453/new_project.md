@@ -30,21 +30,66 @@ evaluate the prospects of AIOps in real world usage.
 
 # Proposed Solution
 
-As we are moving towards heterogeneous cloud, we want to write Cloud-Agnostic
-applications. To make the transition easier, we propose a static code analyser
-to find code snippets specific to a cloud provider using SonarQube Quality
-checks. We chose SonarQube as it is widely being used to check for bugs and
-code issues in large enterprises. Apart from pointing to the position of the change,
-we also provide a correction required to move to a another Cloud provider. 
-For example, let us assume that our code analyser checks AWS-specific 
-code snippet to move to Azure Cloud. Then, we provide the changes required to move to Azure.
+To get the most value out of the AIOps system, it should be deployed as an independent platform that 
+ingests data from all IT monitoring sources, and acts as a central system of engagement.
 
-The only way to evaluate our service is to check the accuracy of our recommendations.
-We would check the similarity and correctness of our recommended code snippet with the
-actual code snippet provided via the cloud service provider (it's no rocket science, to
-google a certain part of code).
-Example: If we have 4 recommendations, out of which 3 are correct, we can calculate our
-accuracy and generate a confusion matrix based on these statistics.
+Such a platform must be powered by three major types of algorithms that fully automate and 
+streamline three key dimensions of IT operations monitoring:
+
+1. Detection - Machine Learning models trained on past dataset, which would detect any aberration in the
+               metrics and would raise a flag. This would be the entry point of the system.
+   
+2. Triaging - Identifying root causes of problems and recurring issues, so that you can take action 
+              on what has been discovered.
+   
+3. Remediate - Take an appropriate action to avoid/tackle the problem at hand.
+
+These steps occur in a sequential manner, i.e, Once we detect an incident, we triage it and then remediate it.
+
+As part of this project, we are going to deploy the AIOps lifecycle. The way we plan to do this is
+as follows:
+
+1. Detection:
+    We will have a detection API (Flask application) being served from CloudLab. We will have pre-trained 
+    models that would sit on the local file system (we would just pickle them and store them. We are not 
+    making it more complex as our main goal is not to have the complete system. Our main goal is to evaluate
+    all the different techniques).
+   
+2. Triage:
+    This is the most difficult part to accomplish. We do not plan to come up with a complete RCA. We are 
+    going to mock this part with rules, to showcase how all the different parts are stitched together. We
+    are going to use StackStorm for this. StackStorm would have sensors, which would poll the data, call 
+    our detection API, based on the Anomaly Scores, match a corresponding rule and take an appropriate action.
+   
+3. Remediate:
+    This part contains the set of actions that we would want to take. These actions can be as simple as
+    restarting a container. This would again be part of the StackStorm ecosystems. Actions are scripts
+    which would be called by StackStorm when a particular rule is matched against it.
+   
+The reason we want to come-up with the entire AIOps Cycle is to showcase how different detecting algorithms
+can have adverse effects in real world. For example: if we miss an incident, there would not be any rules
+matched and thus there would not be any action taken on it.
+
+The main part of our project is going to be evaluating different Unsupervised Anomaly Detection Algorithms. 
+
+We plan to serve the following models using the API:
+
+1. Statistical:
+    a. Autoregression (AR)
+    b. Moving Average (MA)
+    c. ARIMA
+    d. SARIMA
+    e. SARIMAX
+   
+2. Machine Learning Based Models:
+    a. Isolation Forest (ISF)
+   
+3. Neural Nets:
+    a. LSTM's
+    b. HTM
+
+We will evaluate the above algorithms and study their effects on the AIOps Lifecycle and derive which
+one works the best on our dataset.
 
 **Evaluation Metrics:**
 
@@ -83,19 +128,13 @@ F1 score is an apt metric evaluation for our use case.
 
 # Timeline
 
-* Checkin I (03/30): We plan to have our Static Code Analyzer in place which will
-  be able to detect cloud dependent code for at least one of the platform providers.
-  Example: We will be able to detect that a particular code snippet is meant for job
-  scheduling in AWS/Azure.
+* Checkin I (03/30): We plan to complete the evaluation of all the statistical models.
 
-* Checkin II (04/20): By this time, we will be extending our Static Code Analyzer for
-  all the clouds of our interest, i.e, AWS and Azure. We will also have in-place a recommendation
-  engine, which would recommend conversions on cloud centric code snippet.
-  Example: A code snippet for job scheduling in AWS --> A code snippet for job scheduling in Azure.
+* Checkin II (04/20): We plan to deploy all the models on CloudLab and serve them via API. 
+  We will also start with StackStorm and have the sensor ready to poll data and call the API.
 
-* Final Hand-in (05/11): We will have the entire application running end-to-end, from Static Code
-  Analyzer to Recommendation Engine which will detect and recommend changes to code snippets which
-  are platform centric.
+* Final Hand-in (05/11): We will have the complete evaluation of all our Anomlay Detection Model and 
+  also a complete AIOps Lifecycle (using StackStorm) to study the effect of these algorithms on real world systems.
   
 # References
 1. https://arxiv.org/pdf/1909.05409.pdf
