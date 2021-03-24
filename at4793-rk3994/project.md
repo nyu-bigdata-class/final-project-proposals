@@ -1,5 +1,5 @@
 ---
-title: " "
+title: "MEAN stack vulnerabilities diagnose with Kubernetes monitoring tools"
 author:
   - Aakriti Talwar<at4793@nyu.edu>
   - Ramneek Kaur <rk3994@nyu.edu>
